@@ -4,19 +4,18 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class AnimPanel extends JPanel implements ActionListener {
+public class AnimPanel extends JPanel implements ActionListener, MouseListener {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public static double currX;
+	public static double currY;
 
 	// bufor
 	Image image;
@@ -35,6 +34,7 @@ public class AnimPanel extends JPanel implements ActionListener {
 		super();
 		setBackground(Color.WHITE);
 		timer = new Timer(delay, this);
+		this.addMouseListener(this);
 
 	}
 
@@ -68,5 +68,32 @@ public class AnimPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		device.drawImage(image, 0, 0, null);
 		buffer.clearRect(0, 0, getWidth(), getHeight());
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		currX = e.getX();
+		currY = e.getY();
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
 	}
 }

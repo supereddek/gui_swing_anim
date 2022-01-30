@@ -3,10 +3,7 @@
  */
 package figury;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.Shape;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
@@ -99,6 +96,8 @@ public abstract class Figura implements Runnable, ActionListener/*, Shape*/ {
 		aft.translate(dx, dy);
 		// przeksztalcenie obiektu
 		area.transform(aft);
+		if (area.contains(AnimPanel.currX, AnimPanel.currY)) {clr = new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));}
+
 		return area;
 	}
 
